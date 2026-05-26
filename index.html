@@ -212,8 +212,83 @@ tbody tr:last-child td{border-bottom:none}
 .chart-host{position:relative;height:280px;width:100%}
 .viz-foot{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-soft)}
 .viz-foot strong{color:var(--ink)}
+<div class="charts">
 
-/* SQL SECTION */
+      <div class="chart-card">
+        <div class="chart-img"><img src="https://placehold.co/600x400/006BB6/FFFFFF?text=Chart+01:+Series+Box" alt="Series box — Knicks sweep Cavaliers 4-0"></div>
+        <div class="chart-body">
+          <span class="tag">Chart 01 · Series Box</span>
+          <h3>The shape of a sweep.</h3>
+          <p>Margins widened across the series. The Game 4 closeout was the largest scoring differential of the four games and the most lopsided ECF closeout for New York in three decades.</p>
+          <ul>
+            <li><strong>Avg margin:</strong> +18.75 points across four games</li>
+            <li><strong>Trend:</strong> margin grew Game 1 → Game 4 (+11 → +37)</li>
+            <li><strong>Read:</strong> Cleveland did not adjust between games</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chart-card flip">
+        <div class="chart-img"><img src="https://placehold.co/600x400/006BB6/FFFFFF?text=Chart+02:+Lineup+Net+Rating" alt="5-Man lineup net rating per 100 possessions"></div>
+        <div class="chart-body">
+          <span class="tag">Chart 02 · Lineup Net Rating</span>
+          <h3>The bench mob was the best unit on the floor.</h3>
+          <p>Net rating is offensive rating minus defensive rating, possession-weighted across all four ECF games. The <span class="code">BENCH_MOB</span> grouping outpaced the starters and the closing five.</p>
+          <ul>
+            <li><strong>BENCH_MOB (+8.88):</strong> McBride, Alvarado, Anunoby, Shamet, Robinson — 88 possessions</li>
+            <li><strong>STARTERS (+6.28):</strong> Brunson, Bridges, Anunoby, Hart, Towns — 92 possessions</li>
+            <li><strong>Read:</strong> the second unit was a tempo and switchability advantage Cleveland couldn't match</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-img"><img src="https://placehold.co/600x400/006BB6/FFFFFF?text=Chart+03:+Scheme+Impact" alt="Defensive scheme impact"></div>
+        <div class="chart-body">
+          <span class="tag">Chart 03 · Scheme Impact</span>
+          <h3>ICE > DROP > SWITCH. By a lot.</h3>
+          <p>Aggregated across every lineup-game observation, the gap between Cleveland's worst-handled coverage (ICE) and best-handled (SWITCH) was the single largest swing factor in the series.</p>
+          <ul>
+            <li><strong>ICE:</strong> +4.90 net per 100 — the look Cleveland never solved</li>
+            <li><strong>DROP:</strong> +1.24 net — viable, situational</li>
+            <li><strong>SWITCH:</strong> -2.87 net — Cleveland punished it. Reduce exposure.</li>
+            <li><strong>Swing:</strong> 7.77 points per 100 between best and worst scheme</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chart-card flip">
+        <div class="chart-img"><img src="https://placehold.co/600x400/006BB6/FFFFFF?text=Chart+04:+Player+Efficiency" alt="Player efficiency — Usage Rate vs True Shooting"></div>
+        <div class="chart-body">
+          <span class="tag">Chart 04 · Player Efficiency</span>
+          <h3>Brunson and Towns carried the usage. Shamet was the efficiency surprise.</h3>
+          <p>True Shooting blends 2P, 3P, and free-throw scoring efficiency. Usage Rate is the share of team possessions a player finished. The Knicks closed the series with three players above 60% TS.</p>
+          <ul>
+            <li><strong>Brunson:</strong> 63.55% TS / 23.63% USG — ECF MVP</li>
+            <li><strong>Towns:</strong> 65.02% TS / 22.6% USG</li>
+            <li><strong>Shamet:</strong> 91.51% TS on lower volume — a scalable role-player profile</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-img"><img src="https://placehold.co/600x400/006BB6/FFFFFF?text=Chart+05:+Data+Quality" alt="Data contract guardrail summary"></div>
+        <div class="chart-body">
+          <span class="tag">Chart 05 · Data Quality</span>
+          <h3>Four anomalies were caught upstream. None reached the metrics.</h3>
+          <p>Every record is run against schema, type, and plausibility rules before it touches the analytics. Bad rows are quarantined and logged with a reason. The pipeline always tells the consumer what was excluded and why.</p>
+          <ul>
+            <li><strong>NYK_15:</strong> fgm (18) exceeds fga (4) — impossible shooting line</li>
+            <li><strong>NYK_03:</strong> missing required field <span class="code">minutes_played</span></li>
+            <li><strong>N/A:</strong> player_id was null</li>
+            <li><strong>NYK_02:</strong> minutes_played out of range (-7.2)</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  
+  /* SQL SECTION */
 .sql-wrap{display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:start}
 .sql-tabs{
   background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px;
